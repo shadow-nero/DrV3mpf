@@ -72,4 +72,4 @@ Now, simply run the **.bat** file to execute the commands automatically.
 ## Special Thanks  
 
 - **[Morgana-X](https://github.com/morgana-x)** – I was inspired by the pull he made on another tool of mine.
-- **[SomesillyPenguin](https://github.com/)** – This tool was made to help him in his analysis, so he needs to be here in the credits because without him I wouldn't even have created this tool. 
+- **[SomesillyPenguin](https://github.com/silicon-git)** – This tool was made to help him in his analysis, so he needs to be here in the credits because without him I wouldn't even have created this tool. 
