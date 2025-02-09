@@ -52,46 +52,41 @@ jobs:
       matrix:
         configuration: [Debug, Release]
 
-    runs-on: windows-latest  
+    runs-on: windows-latest
 
     env:
-      Solution_Name: DrV3mpfSettings.sln                         
-      Test_Project_Path: your-test-project-path                 
-      Wap_Project_Directory: your-wap-project-directory-name    
-      Wap_Project_Path: your-wap-project-path                   
+      Solution_Name: DrV3mpfSettings.sln  # Nome do seu arquivo .sln
+      Test_Project_Path: DrV3mpfSettings.Tests/DrV3mpfSettings.Tests.csproj # Ajuste conforme necessário
 
     steps:
-    - name: Checkout
+    - name: Checkout código-fonte
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    - name: Install .NET Core
+    - name: Instalar .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    - name: Setup MSBuild.exe
+    - name: Configurar MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    - name: Execute unit tests
-      run: dotnet test
+    - name: Restaurar pacotes
+      run: dotnet restore $env:Solution_Name
 
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+    - name: Compilar a solução
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
 
-    - name: Create the app package (no signing)
-      run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle
+    - name: Executar testes
+      run: dotnet test $env:Test_Project_Path --configuration $env:Configuration
       env:
-        Appx_Bundle: Always
-        Appx_Bundle_Platforms: x86|x64
-        Appx_Package_Build_Mode: StoreUpload
         Configuration: ${{ matrix.configuration }}
 
-    - name: Upload build artifacts
+    - name: Upload dos artefatos (Executável gerado)
       uses: actions/upload-artifact@v4
       with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+        name: Build Output
+        path: bin/${{ matrix.configuration }}
