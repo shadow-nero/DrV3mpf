@@ -71,5 +71,5 @@ Now, simply run the **.bat** file to execute the commands automatically.
 
 ## Special Thanks  
 
-- **[Morgana-X](https://aluigi.altervista.org/quickbms.htm)** – I was inspired by the pull he made on another tool of mine.
-- **[Pinguim](https://github.com/NicholasMoser)** – This tool was made to help him in his analysis, so he needs to be here in the credits because without him I wouldn't even have created this tool. 
+- **[Morgana-X](https://github.com/morgana-x)** – I was inspired by the pull he made on another tool of mine.
+- **[SomesillyPenguin](https://github.com/)** – This tool was made to help him in his analysis, so he needs to be here in the credits because without him I wouldn't even have created this tool. 
