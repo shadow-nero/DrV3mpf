@@ -50,7 +50,25 @@ namespace DrV3mpfCursor
 
         public static Dictionary<ushort, string> ValueNames = new()
         {
-            [0] = "Model_ID"
+            [0] = "Scene_ID",
+            [1] = "wak051_detail",
+            [2] = "New_area_0",
+            [3] = "New_area_1",
+            [4] = "New_area_2",
+            [5] = "New_area_3",
+            [6] = "New_area_4",
+            [7] = "New_area_5",
+            [8] = "New_area_6",
+            [9] = "New_area_7",
+            [10] = "New_area_8",
+            [11] = "New_area_9",
+            [12] = "New_area_10",
+            [13] = "New_area_11",
+            [14] = "New_area_12",
+            [15] = "New_area_13",
+            [16] = "New_area_14",
+            [17] = "New_area_15",
+            [18] = "New_area_16",
         };
     }
 
