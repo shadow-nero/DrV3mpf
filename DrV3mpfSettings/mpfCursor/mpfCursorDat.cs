@@ -69,9 +69,12 @@ public class mpfCursorDat
             }
             else
             {
-                Console.WriteLine($"Aviso: O capítulo {chapter.ID_Chapter} não existe no arquivo original e foi ignorado.");
+                Chapters.Add(chapter);
+                Console.WriteLine($"Capítulo {chapter.ID_Chapter} adicionado de {file}");
             }
         }
+
+        Chapters = Chapters.OrderBy(c => c.ID_Chapter).ToList();
     }
     public void SaveToDat(string outputPath)
     {
